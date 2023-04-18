@@ -7,7 +7,7 @@ function App() {
    return (
       <div className='App'>
          <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-         <Cards characters={characters} />
+         <Cards characters={characters}/>
       </div>
    );
 }

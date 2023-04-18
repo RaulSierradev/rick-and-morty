@@ -1,9 +1,9 @@
 export default function Card(props) {
-  const { characters } = props;
+  const { characters} = props;
   return characters.map((char) => {
     return (
       <div key={char.id}>
-        <button onClick={char.onClose}>X</button>
+        <button onClick={() => window.alert('Emulamos que se cierra la card')}>X</button>
         <h2>{char.name}</h2>
         <h2>{char.status}</h2>
         <h2>{char.species}</h2>
