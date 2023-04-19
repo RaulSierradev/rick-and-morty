@@ -1,7 +1,7 @@
 .card{
     overflow: hidden;
     box-shadow: 0 2px 20px gray;
-    border-radius: 0.2rem;
+    border-radius: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,12 +10,17 @@
 
 .imagenPersonaje{
     width: 100%;
-    object-fit: cover;
+    position: relative;
 }
 
 .cardName{
     padding: 1rem;
     background-color: #71CA14;
+    padding: 10%;
+    margin: 0px;
+}
+.cardDescription{
+    margin: 0.3rem;
 }
 
 .card:hover{
