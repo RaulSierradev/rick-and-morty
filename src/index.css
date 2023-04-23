@@ -1,5 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Macondo', cursive;
+  font-family: 'Carlito', sans-serif;
+  background-image: url("./colorful_space_abstract.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 

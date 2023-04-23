@@ -1,29 +1,66 @@
-.card{
-    overflow: hidden;
-    box-shadow: 0 2px 20px gray;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #dff9fb;
+.card {
+  display: flex;
+  flex-direction: row;
+  box-sizing: inherit;
+  background-color: #455556;
+  color: white;
 }
 
-.imagenPersonaje{
-    width: 100%;
+.cardImagen {
+  height: 100%;
+  width: 300px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.cardDescription {
+  font-size: 16px;
+  text-align: left;
+  margin: 0;
+  padding-left: 20px;
+  font-weight: 400;
+}
+.cardContenido{
     position: relative;
 }
-
-.cardName{
-    padding: 1rem;
-    background-color: #71CA14;
-    padding: 10%;
-    margin: 0px;
+.cardBtn{
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 95%;
 }
-.cardDescription{
-    margin: 0.3rem;
+.cardTitle {
+  text-align: left;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.cardName {
+  font-size: 40px;
+  margin: 0;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.cardSubtitle {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.description1{
+  color: #bdc3c7;  
+  font-size: 18px;
+}
+.description2{
+  color: #ffffff;  
+  font-size: 28px;
 }
 
 .card:hover{
-    transform: scale(1.02);
-    background-color: #c7ecee;
+    transform: scale(1.05);
+    background-color: #859596;
 }
