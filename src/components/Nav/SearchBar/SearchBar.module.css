@@ -1,8 +1,7 @@
 .searchBar{
     padding: 2rem;
-    background-color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     text-align: center;
 }
 

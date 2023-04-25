@@ -1,40 +1,41 @@
 import style from "./Card.module.css";
 
 export default function Card(props) {
-  const { characters } = props;
-  return characters.map((char) => {
-    return (
-      <div key={char.id} className={style.card}>
-        <div className="imagen">
-          <img className={style.cardImagen} src={char.image} alt={char.name} />
-        </div>
-        <div className={style.cardContenido}>
-        <button className={style.cardBtn}
-            onClick={() => window.alert("Emulamos que se cierra la card")}
-          >
-            X
+  const { id, name, gender, species, image, status, origin, onClose } = props;
+  console.log(origin)
+  return (
+    <div key={id} className={style.card}>
+      <button
+          className={style.cardBtn}
+          onClick={()=> onClose(id)}
+        >
+          X
         </button>
-          <div className={style.cardTitle}>
-            <h2 className={style.cardName}>{char.name}</h2>
-            <p className={style.cardSubtitle}>
-              {char.species} - {char.status}
-            </p>
-          </div>
-          <div className={style.cardDescription}>
-            <h2 className={style.description1}>
-              Gender: <br />
-              <span className={style.description2}>{char.gender}</span>
-            </h2>
-            <h2 className={style.description1}>
-              Birthplace: <br />
-              <span className={style.description2}>{char.origin.name}</span>
-            </h2>
-            
-          </div>
+      <div className="imagen">
+        <img className={style.cardImagen} src={image} alt={name} />
+      </div>
+      
+      <div className={style.cardContenido}>
+        
+        <div className={style.cardTitle}>
+          <h2 className={style.cardName}>{name}</h2>
+          <p className={style.cardSubtitle}>
+            {species} - {status}
+          </p>
+        </div>
+        <div className={style.cardDescription}>
+          <h2 className={style.description1}>
+            Gender: <br />
+            <span className={style.description2}>{gender}</span>
+          </h2>
+          <h2 className={style.description1}>
+            Birthplace: <br />
+            <span className={style.description2}>{origin}</span>
+          </h2>
         </div>
       </div>
-    );
-  });
+    </div>
+  );
 }
 
 // <div>

@@ -5,6 +5,22 @@ export default function Cards(props) {
    // console.log(props)
    return (
    <div className={style.container}>
-      <Card characters={props.characters} />
+      {
+        props.characters.map((character) => {
+          return (
+            <Card
+              key={character.id}
+              id= {character.id}
+              name={character.name}
+              species={character.species}
+              gender={character.gender}
+              origin = {character.origin.name}
+              status ={character.status}
+              image={character.image}
+              onClose={props.onClose}
+            />
+          );
+        })
+      }
    </div>);
 }

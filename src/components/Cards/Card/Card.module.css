@@ -30,7 +30,7 @@
     border: none;
     position: absolute;
     top: 0;
-    left: 95%;
+    margin-left: 95%;
 }
 .cardTitle {
   text-align: left;
