@@ -1,6 +1,15 @@
 .searchBar{
     padding: 2rem;
-    background-color: #02B1C8;
+    background-color: white;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.searchSpace{
+    font-size: 40px;
+}
+
+.searchSpace input{
+    
 }
