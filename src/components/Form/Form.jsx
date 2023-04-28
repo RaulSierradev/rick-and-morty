@@ -49,6 +49,9 @@ export default function Form(props) {
             onChange={handleChange}
           />
           <p>{errors.password}</p>
+
+          <p>mail@mail.com</p>
+          <p>Pass1234@</p>
         </div>
         <button type="submit">Submit</button>
       </form>
