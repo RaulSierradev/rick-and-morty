@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./Form.module.css";
 import validation from "./validation";
+import imagen from "../../img/R&M-portal.png";
 
 export default function Form(props) {
   const [userData, setUserData] = useState({
@@ -27,28 +28,38 @@ export default function Form(props) {
 
   return (
     <div className={style.form}>
-      <form onSubmit={handleSubmit}>
+      <div>
+        <img
+          className={style.imagenForm}
+          src={imagen}
+          alt="Rick and Morty portal"
+        />
+      </div>
+      <form className={style.contenidoForm} onSubmit={handleSubmit}>
         <div>
-          <label>Email</label>
+          <label className={style.labelForm}>Email</label>
+          <br></br>
           <input
+            className={style.inputForm}
             name="email"
             placeholder="Enter your email"
             type="text"
             value={userData.email}
             onChange={handleChange}
           />
-          <p>{errors.email}</p>
+          <p className={style.danger}>{errors.email}</p>
         </div>
         <div>
-          <label>Password</label>
-          <input
+          <label className={style.labelForm}>Password</label>
+          <br></br>
+          <input className={style.inputForm}
             name="password"
             placeholder="••••••••••"
             type="password"
             value={userData.password}
             onChange={handleChange}
           />
-          <p>{errors.password}</p>
+          <p className={style.danger}>{errors.password}</p>
 
           <p>mail@mail.com</p>
           <p>Pass1234@</p>

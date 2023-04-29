@@ -13,13 +13,17 @@ export default function validation(userData, errors, setErrors) {
     setErrors({ ...errors, email: "" });
   }
 
-  if (userData.password.length < 7  || userData.password.length > 16) {
+  if (!userData.password) {
+    setErrors({ ...errors, password: "The text field is empty" });
+  } else if (userData.password.length < 7 || userData.password.length > 16) {
     setErrors({ ...errors, password: "invalid password length" });
   } else if (!regexPassword.test(userData.password)) {
     setErrors({
-      ...errors, password: "Must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character",
+      ...errors,
+      password:
+        "Must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character",
     });
-  }else{
+  } else {
     setErrors({ ...errors, password: "" });
   }
 }
