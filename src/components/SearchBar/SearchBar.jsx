@@ -6,13 +6,12 @@ export default function SearchBar(props) {
 
   const handleChange = (event) => {
     setId(event.target.value);
+
   };
   return (
     <div className={style.searchBar}>
-      <div className={style.searchSpace}>
-        <input type="search" onChange={handleChange} value={id}/>
-        <button onClick={()=>props.onSearch(id)}>Agregar</button>
-      </div>
+      <input className={style.searchInput} type="search" onChange={handleChange} value={id} />
+      <button type="reset" className={style.searchButton} onClick={() => props.onSearch(id)}>Agregar</button>
     </div>
   );
 }

@@ -1,3 +1,31 @@
 .nav{
-    background-color: #1c2a39;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.navTitle{
+    color: white;
+    font-size: 40px;
+    padding-top: 5px;
+    text-decoration: none;
+}
+
+.navLink{
+    text-decoration: none;
+}
+
+.navButton{
+    color: white;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.navButton:hover{
+    background-color: white;
+    color: black
 }

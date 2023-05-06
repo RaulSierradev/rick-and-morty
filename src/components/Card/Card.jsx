@@ -1,26 +1,62 @@
 import style from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addFav, removeFav } from "../../redux/actions";
+import { useState, useEffect } from "react";
 
-export default function Card(props) {
-  const { id, name, gender, species, image, status, origin, onClose } = props;
-  console.log(origin)
+function Card(props) {
+  const {
+    id,
+    name,
+    gender,
+    species,
+    image,
+    status,
+    origin,
+    onClose,
+    ver,
+    addFav,
+    removeFav,
+    myFavorites,
+  } = props;
+
+  const [isFav, setIsFav] = useState(false);
+
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === props.id) {
+        setIsFav(true);
+      }
+    });
+  }, [myFavorites]);
+
+  const handleFavorite = () => {
+    isFav ? removeFav(id) : addFav(props);
+    setIsFav(!isFav);
+  };
+
   return (
     <div key={id} className={style.card}>
-      <button
-          className={style.cardBtn}
-          onClick={()=> onClose(id)}
-        >
+      {ver && (
+        <button className={style.cardBtn} onClick={() => onClose(id)}>
           X
         </button>
+      )}
+      {isFav ? (
+        <button className={style.cardHeart} onClick={handleFavorite}>❤️</button>
+      ) : (
+        <button className={style.cardHeart} onClick={handleFavorite}>🤍</button>
+      )}
       <div className="imagen">
         <img className={style.cardImagen} src={image} alt={name} />
       </div>
-      
+
       <div className={style.cardContenido}>
-        
         <div className={style.cardTitle}>
-          <Link to={`/detail/${id}`}><h2 className={style.cardName}>{name}</h2></Link>
-          
+          <Link to={`/detail/${id}`} className={style.cardName}>
+            <h2 className={style.cardName}>{name}</h2>
+          </Link>
+
           <p className={style.cardSubtitle}>
             {species} - {status}
           </p>
@@ -31,7 +67,7 @@ export default function Card(props) {
             <span className={style.description2}>{gender}</span>
           </h2>
           <h2 className={style.description1}>
-            Birthplace: <br />
+            Origin: <br />
             <span className={style.description2}>{origin}</span>
           </h2>
         </div>
@@ -40,12 +76,21 @@ export default function Card(props) {
   );
 }
 
-// <div>
-//  <button onClick={char.onClose}>X</button>
-//    <h2>{char.name}</h2>
-//    <h2>{char.status}</h2>
-//    <h2>{char.species}</h2>
-//    <h2>{char.gender}</h2>
-//    <h2>{char.origin}</h2>
-//    <img src={char.image} alt={char.name} />
-// </div>
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (char) => {
+      dispatch(addFav(char));
+    },
+    removeFav: (id) => {
+      dispatch(removeFav(id));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

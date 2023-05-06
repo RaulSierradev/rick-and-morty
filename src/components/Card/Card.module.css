@@ -20,17 +20,29 @@
   padding-left: 20px;
   font-weight: 400;
 }
-.cardContenido{
-    position: relative;
+.cardContenido {
+  position: relative;
+  padding-top: 40px;
 }
-.cardBtn{
-    height: 20px;
-    width: 20px;
-    background-color: white;
-    border: none;
-    position: absolute;
-    top: 0;
-    margin-left: 95%;
+.cardBtn {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  background-color: white;
+  border: none;
+  position: absolute;
+  margin-top: -15px;
+  margin-left: 550px;
+}
+.cardHeart {
+  font-size: 40px;
+  border: none;
+  position: absolute;
+  background-color: transparent;
+}
+.cardBtn:hover {
+  background-color: red;
+  color: white;
 }
 .cardTitle {
   text-align: left;
@@ -43,7 +55,19 @@
   margin: 0;
   padding-top: 10px;
   font-weight: bold;
+  text-decoration: none;
+  color: white
 }
+
+.cardName:hover{
+  color: #fdcb6e;
+}
+
+.cardName:focus{
+  color: #fdcb6e;
+  border-bottom: 1px solid;
+}
+
 
 .cardSubtitle {
   font-size: 20px;
@@ -51,16 +75,16 @@
   margin: 0;
 }
 
-.description1{
-  color: #bdc3c7;  
+.description1 {
+  color: #bdc3c7;
   font-size: 18px;
 }
-.description2{
-  color: #ffffff;  
+.description2 {
+  color: #ffffff;
   font-size: 28px;
 }
 
-.card:hover{
-    transform: scale(1.05);
-    background-color: #859596;
+.card:hover {
+  transform: scale(1.05);
+  background-color: #859596;
 }

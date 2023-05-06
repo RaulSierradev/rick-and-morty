@@ -6,11 +6,16 @@ import { Link } from "react-router-dom";
 export default function Nav(props) {
   return (
     <div className={style.nav}>
-      <Link to="/about">
-        <button>About</button>
+      <Link to='/home' className={style.navTitle}><h1 className={style.navTitle}>[Rick and Morty]</h1></Link>
+      
+      <Link className={style.navLink} to="/about">
+        <p className={style.navButton}>About</p>
       </Link>
-      <Link to="/home">
-        <button>Home</button>
+      <Link className={style.navLink} to="/home">
+        <p className={style.navButton}>Home</p>
+      </Link>
+      <Link className={style.navLink} to="/favorites">
+        <p className={style.navButton}>Favorites</p>
       </Link>
       <SearchBar onSearch={props.onSearch} />
     </div>

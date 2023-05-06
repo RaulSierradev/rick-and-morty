@@ -3,5 +3,6 @@ body {
   font-family: 'Carlito', sans-serif;
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url("../src/img/colorful_space_abstract.jpg");
 }
 
