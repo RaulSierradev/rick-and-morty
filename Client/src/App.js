@@ -20,7 +20,7 @@ function App() {
   const navigate = useNavigate();
 
   function onSearch(id) {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
         const char = characters?.find((e) => e.id === data.id);
         if (char) {

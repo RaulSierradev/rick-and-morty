@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "nodemon": "^2.0.22",
     "nth-check": "^2.1.1"
   }
 }
