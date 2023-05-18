@@ -2,21 +2,23 @@ import { ADD_FAV, REMOVE_FAV } from "./actions";
 
 const initialState = {
   myFavorites: [],
+  allCharacters: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    // REDUCER | ADD_FAV
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: [...state.myFavorites, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
+    // REDUCER | REMOVE_FAV
     case REMOVE_FAV:
-      let str = action.payload;
-      let num = Number(str);
       return {
         ...state,
-        myFavorites: state.myFavorites.filter((char) => char.id !== num),
+        myFavorites: action.payload,
       };
 
     default:
