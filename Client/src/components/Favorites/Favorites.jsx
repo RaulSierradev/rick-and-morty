@@ -15,7 +15,7 @@ function Favorites({ myFavorites }) {
             name={character.name}
             species={character.species}
             gender={character.gender}
-            origin={character.origin?.name}
+            origin={character.origin}
             status={character.status}
             image={character.image}
             ver={ver}

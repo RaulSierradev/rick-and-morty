@@ -21,7 +21,7 @@ export default function Detail() {
       <h1>{character.name}</h1>
       <h3>status: {character.species}</h3>
       <h3>gender: {character.gender}</h3>
-      <h3>origin: {character.origin?.name}</h3>
+      <h3>origin: {character.origin}</h3>
       <h3>status: {character.status}</h3>
     </div>
   )
