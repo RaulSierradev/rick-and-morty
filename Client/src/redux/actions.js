@@ -1,8 +1,12 @@
 import axios from "axios";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
 export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
 
+// ACTION | addFav
 export const addFav = (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
   return (dispatch) => {

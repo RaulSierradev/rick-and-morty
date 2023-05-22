@@ -8,7 +8,10 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+<<<<<<< HEAD
 ;
+=======
+>>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
 
 function App() {
   let [characters, setCharacters] = useState([]);
@@ -20,13 +23,19 @@ function App() {
   function onSearch(id) {
     axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
+<<<<<<< HEAD
         console.log("Esta es la data del front", data);
         const char = characters?.find((e) => e.id === data.id);
         console.log("Este es el personaje del front", char);
+=======
+        console.log("Soy data del front", data);
+        const char = characters?.find(e => e.id === Number(data.id));
+        console.log("Soy el personaje del front", char);
+>>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
         if (char) {
           alert("Already in the list");
         } else if (data.id !== undefined) {
-          setCharacters((characters) => [...characters, data]);
+          setCharacters(characters => [...characters, data]);
         } else {
           alert("Character not found");
         }
