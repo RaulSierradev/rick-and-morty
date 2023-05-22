@@ -2,6 +2,7 @@ import { ADD_FAV, REMOVE_FAV } from "./actions";
 
 const initialState = {
   myFavorites: [],
+  allCharacters: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -9,15 +10,11 @@ const rootReducer = (state = initialState, action) => {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: [...state.myFavorites, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     case REMOVE_FAV:
-      let str = action.payload;
-      let num = Number(str);
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter((char) => char.id !== num),
-      };
+      return { ...state, myFavorites: action.payload };
 
     default:
       return { ...state };

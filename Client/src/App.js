@@ -8,9 +8,7 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
-
-const email = "mail@mail.com";
-const password = "Pass1234@";
+;
 
 function App() {
   let [characters, setCharacters] = useState([]);
@@ -22,7 +20,9 @@ function App() {
   function onSearch(id) {
     axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
+        console.log("Esta es la data del front", data);
         const char = characters?.find((e) => e.id === data.id);
+        console.log("Este es el personaje del front", char);
         if (char) {
           alert("Already in the list");
         } else if (data.id !== undefined) {
@@ -34,15 +34,15 @@ function App() {
     );
   }
 
-  const login = (userData) => {
-    if (userData.password === password && userData.email === email) {
-      setAccess(true);
-      navigate("/home");
-    }
-    else{
-      alert('The email or password is incorrect')
-    }
-  };
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
+  }
 
   // App.js
   useEffect(() => {
@@ -60,7 +60,7 @@ function App() {
       {pathname !== "/" && <Nav onSearch={onSearch} />}
 
       <Routes>
-        <Route path="/" element={<Form login={login}/>} />
+        <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
