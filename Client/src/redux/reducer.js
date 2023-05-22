@@ -2,11 +2,7 @@ import { ADD_FAV, REMOVE_FAV } from "./actions";
 
 const initialState = {
   myFavorites: [],
-<<<<<<< HEAD
   allCharacters: []
-=======
-  allCharacters: [],
->>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -20,14 +16,7 @@ const rootReducer = (state = initialState, action) => {
       };
     // REDUCER | REMOVE_FAV
     case REMOVE_FAV:
-<<<<<<< HEAD
       return { ...state, myFavorites: action.payload };
-=======
-      return {
-        ...state,
-        myFavorites: action.payload,
-      };
->>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
 
     default:
       return { ...state };

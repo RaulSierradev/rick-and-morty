@@ -8,10 +8,6 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
-<<<<<<< HEAD
-;
-=======
->>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
 
 function App() {
   let [characters, setCharacters] = useState([]);
@@ -20,37 +16,36 @@ function App() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-<<<<<<< HEAD
-        console.log("Esta es la data del front", data);
-        const char = characters?.find((e) => e.id === data.id);
-        console.log("Este es el personaje del front", char);
-=======
-        console.log("Soy data del front", data);
-        const char = characters?.find(e => e.id === Number(data.id));
-        console.log("Soy el personaje del front", char);
->>>>>>> 63184caa624868dc907ae13fdc5819a61015c833
-        if (char) {
-          alert("Already in the list");
-        } else if (data.id !== undefined) {
-          setCharacters(characters => [...characters, data]);
-        } else {
-          alert("Character not found");
-        }
+  async function onSearch(id) {
+    try {
+      const url = 'http://localhost:3001/rickandmorty/character/'+id;
+      const { data } = await axios(url);
+      console.log("Esta es la data del front", data);
+      console.log('Este es el origin: ', data.origin)
+      const char = characters?.find((e) => e.id === Number(data.id));
+      console.log("Este es el personaje del front", char);
+      if (char) {
+        alert("Already in the list");
+      } else if (data.id !== undefined) {
+        setCharacters((characters) => [...characters, data]);
       }
-    );
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const query = `?email=${email}&password=${password}`;
+      const { data } = await axios(URL + query);
       const { access } = data;
       setAccess(data);
       access && navigate("/home");
-    });
+    } catch (error) {
+      return { error: error.message };
+    }
   }
 
   // App.js
@@ -59,14 +54,12 @@ function App() {
   }, [access]);
 
   const onClose = (id) => {
-    setCharacters(
-      characters.filter((character) => character.id !== Number(id))
-    );
+    setCharacters(characters.filter((character) => character.id !== id));
   };
 
   return (
     <div className="App">
-      {pathname !== "/" && <Nav onSearch={onSearch} />}
+      {pathname !== "/" && <Nav onSearch={onSearch} setAccess={setAccess} />}
 
       <Routes>
         <Route path="/" element={<Form login={login} />} />

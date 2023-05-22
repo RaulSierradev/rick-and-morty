@@ -31,8 +31,13 @@ function Card(props) {
   }, [myFavorites]);
 
   const handleFavorite = () => {
-    isFav ? removeFav(id) : addFav(props);
-    setIsFav(!isFav);
+    if (isFav) {
+      setIsFav(false);
+      removeFav(id);
+    } else {
+      setIsFav(true);
+      addFav(props);
+    }
   };
 
   return (
