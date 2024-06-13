@@ -1,13 +1,13 @@
 import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
-import Nav from "./components/Nav/Nav";
+import Nav from "./components/Nav/Nav.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import About from "./components/About/About";
-import Detail from "./components/Detail/Detail";
-import Form from "./components/Form/Form";
-import Favorites from "./components/Favorites/Favorites";
+import About from "./components/About/About.jsx";
+import Detail from "./components/Detail/Detail.jsx";
+import Form from "./components/Form/Form.jsx";
+import Favorites from "./components/Favorites/Favorites.jsx";
 
 function App() {
   let [characters, setCharacters] = useState([]);
